@@ -16,7 +16,7 @@ steps:
     workingDirectory: ''
     gradleWrapperFile: 'gradlew'
     gradleOptions: '-Xmx3072m'
-    publishJUnitResults: true
+    publishJUnitResults: false
     testResultsFiles: '**/TEST-*.xml'
     tasks: 'build'
 
@@ -25,7 +25,8 @@ steps:
   inputs:
     workingDirectory: ''
     gradleWrapperFile: 'gradlew'
-    gradleOptions: '-Xmx3072m --build-file app/build-kotlin-native.gradle.kts'
-    publishJUnitResults: true
+    options: '--build-file app/build-kotlin-native.gradle.kts'
+    gradleOptions: '-Xmx3072m'
+    publishJUnitResults: false
     testResultsFiles: '**/TEST-*.xml'
     tasks: 'build'
