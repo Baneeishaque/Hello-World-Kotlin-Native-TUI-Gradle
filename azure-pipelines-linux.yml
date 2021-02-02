@@ -9,24 +9,35 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
+variables:
+  GRADLE_USER_HOME: $(Pipeline.Workspace)/.gradle
+  KONAN_USER_HOME: $(Pipeline.Workspace)/.konan
+
 steps:
+- task: Cache@2
+  inputs:
+    key: 'gradle | "$(Agent.OS)"'
+    restoreKeys: gradle
+    path: $(GRADLE_USER_HOME)
+  displayName: Gradle Build Cache
+
+- task: Cache@2
+  inputs:
+    key: 'konan | "$(Agent.OS)"'
+    restoreKeys: konan
+    path: $(KONAN_USER_HOME)
+  displayName: Konan Build Cache
+
 - task: Gradle@2
   displayName: 'Gradle Build : Kotlin JVM'
   inputs:
-    workingDirectory: ''
-    gradleWrapperFile: 'gradlew'
     gradleOptions: '-Xmx3072m'
-    publishJUnitResults: false
-    testResultsFiles: '**/TEST-*.xml'
-    tasks: 'build'
 
 - task: Gradle@2
   displayName: 'Gradle Build : Kotlin Native'
   inputs:
-    workingDirectory: ''
-    gradleWrapperFile: 'gradlew'
     options: '--build-file app/build-kotlin-native.gradle.kts'
     gradleOptions: '-Xmx3072m'
-    publishJUnitResults: false
-    testResultsFiles: '**/TEST-*.xml'
-    tasks: 'build'
+
+- script: './gradlew --stop'    
+  displayName: Stop Gradle Daemon
