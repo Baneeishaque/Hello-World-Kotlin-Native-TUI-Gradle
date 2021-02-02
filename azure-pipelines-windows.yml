@@ -11,10 +11,21 @@ pool:
 
 steps:
 - task: Gradle@2
+  displayName: 'Gradle Build : Kotlin JVM'
   inputs:
     workingDirectory: ''
     gradleWrapperFile: 'gradlew'
     gradleOptions: '-Xmx3072m'
+    publishJUnitResults: true
+    testResultsFiles: '**/TEST-*.xml'
+    tasks: 'build'
+
+- task: Gradle@2
+  displayName: 'Gradle Build : Kotlin Native'
+  inputs:
+    workingDirectory: ''
+    gradleWrapperFile: 'gradlew'
+    gradleOptions: '-Xmx3072m --build-file app/build-kotlin-native.gradle.kts'
     publishJUnitResults: true
     testResultsFiles: '**/TEST-*.xml'
     tasks: 'build'
