@@ -1,0 +1,1 @@
+rootProject.name = "Hello-World-Kotlin-Native-TUI-Gradle-App"
