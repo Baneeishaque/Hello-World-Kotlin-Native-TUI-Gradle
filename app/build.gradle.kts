@@ -112,5 +112,11 @@ kotlin {
       executable()
     }
   }
+  sourceSets {
+    val commonMain by getting {    
+        dependencies {
+            api ("org.jetbrains.kotlin:kotlin-stdlib-common")
+        }
+    }
+  }
 }
-
