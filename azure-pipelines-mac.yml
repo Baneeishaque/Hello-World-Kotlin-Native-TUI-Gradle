@@ -11,7 +11,7 @@ pool:
 
 variables:
   GRADLE_USER_HOME: $(Pipeline.Workspace)/.gradle
-  KONAN_USER_HOME: $(Pipeline.Workspace)/.konan
+  KONAN_USER_HOME: '/Users/runner/.konan'
 
 steps:
 - task: Cache@2

@@ -20,7 +20,12 @@ pool:
 
 variables:
   GRADLE_USER_HOME: $(Pipeline.Workspace)/.gradle
-  KONAN_USER_HOME: $(Pipeline.Workspace)/.konan
+  ${{ if eq( variables['Agent.OS'], 'Windows_NT' ) }}:
+    KONAN_USER_HOME: 'C:/Users/VssAdministrator/.konan'
+  ${{ if eq( variables['Agent.OS'], 'Linux' ) }}:
+    KONAN_USER_HOME: '/home/vsts/.konan'
+  ${{ if eq( variables['Agent.OS'], 'Darwin' ) }}:
+    KONAN_USER_HOME: '/Users/runner/.konan'
 
 steps:
 - task: Cache@2
