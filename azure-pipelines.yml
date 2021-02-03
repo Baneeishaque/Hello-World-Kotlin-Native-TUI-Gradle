@@ -39,7 +39,7 @@ steps:
   inputs:
     key: 'konan | "$(Agent.OS)"'
     restoreKeys: konan
-    path: $(KONAN_USER_HOME)
+    path: ${{variables.KONAN_USER_HOME}}
   displayName: Konan Build Cache
 
 - task: Gradle@2
