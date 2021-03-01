@@ -1,5 +1,5 @@
 plugins {
-    id("org.jetbrains.kotlin.jvm") version "1.4.30-RC"
+    id("org.jetbrains.kotlin.jvm") version "1.4.31"
     application
 }
 
@@ -14,5 +14,5 @@ dependencies {
 }
 
 application {
-    mainClass.set("AppKt") 
+    mainClass.set("AppKt")
 }
