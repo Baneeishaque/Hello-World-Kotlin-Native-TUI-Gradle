@@ -42,12 +42,12 @@ steps:
     path: ${{variables.KONAN_USER_HOME}}
   displayName: Konan Build Cache
 
-- task: Gradle@2
+- task: Gradle@2.208.0
   displayName: 'Gradle Build : Kotlin JVM'
   inputs:
     gradleOptions: '-Xmx3072m'
 
-- task: Gradle@2
+- task: Gradle@2.208.0
   displayName: 'Gradle Build : Kotlin Native'
   inputs:
     options: '--build-file app/build-kotlin-native.gradle.kts'
