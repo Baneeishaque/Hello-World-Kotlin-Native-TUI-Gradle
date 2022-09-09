@@ -14,14 +14,14 @@ variables:
   KONAN_USER_HOME: 'C:/Users/VssAdministrator/.konan'
 
 steps:
-- task: Cache@2
+- task: Cache@2.198.0
   inputs:
     key: 'gradle | "$(Agent.OS)"'
     restoreKeys: gradle
     path: $(GRADLE_USER_HOME)
   displayName: Gradle Build Cache
 
-- task: Cache@2
+- task: Cache@2.198.0
   inputs:
     key: 'konan | "$(Agent.OS)"'
     restoreKeys: konan
