@@ -4,7 +4,7 @@
     <option name="WORKING_DIRECTORY" value="" />
     <option name="PARENT_ENVS" value="true" />
     <module name="" />
-    <option name="SCRIPT_NAME" value="./build/bin/mingwX64/debugExecutable/Hello-World-Kotlin-Native-TUI-Gradle.exe" />
+    <option name="SCRIPT_NAME" value="./build/bin/native/debugExecutable/Hello-World-Kotlin-Native-TUI-Gradle.exe" />
     <option name="PARAMETERS" value="" />
     <method v="2">
       <option name="Make" enabled="true" />
