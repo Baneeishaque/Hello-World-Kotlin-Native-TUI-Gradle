@@ -30,8 +30,6 @@ steps:
 
 - task: Gradle@2.208.0
   displayName: 'Gradle Build : Kotlin Native'
-  inputs:
-    gradleOptions: '-Xmx3072m'
 
 - script: './gradlew --stop'    
   displayName: Stop Gradle Daemon
