@@ -1,5 +1,5 @@
 plugins {
-    kotlin("multiplatform") version "2.4.10"
+    kotlin("multiplatform") version "2.4.20"
 }
 
 group = "ndk.banee"
